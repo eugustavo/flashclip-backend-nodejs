@@ -1,13 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+require('dotenv/config');
 
 const routes = require('./routes');
 
 const app = express();
 app.use(cors());
 
-mongoose.connect("mongodb+srv://sesi:sesieventos@sesi-eventos-iztyf.mongodb.net/flashclip?retryWrites=true&w=majority", {
+mongoose.connect(process.env.DB_ACCESS , {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
